@@ -6,69 +6,30 @@ using UnityEngine.SceneManagement;
 public class AcoesBotoes : MonoBehaviour
 {
 
-    public void AcaoBotao(string opcao)
+    public void AcaoBotaoMainMenu(string opcao)
     {
         switch (opcao)
         {
-            case "NovoJ":
+            case "NovoJogo":
                 {
-                    SceneManager.LoadScene("NovoJogo");
+                    SceneManager.LoadScene("02_NovoJogo_Entrada_Dados");
                     break;
                 }
-            case "NovoJOp1":
-                {
-                    SceneManager.LoadScene("MundoMap");
-                    break;
-                }
-            case "NovoJOp2":
-                {
-                    SceneManager.LoadScene("MundoMap");
-                    break;
-                }
-            case "NovoJOp3":
-                {
-                    SceneManager.LoadScene("MundoMap");
-                    break;
-                }
+            
             case "Continuar":
                 {
-                    SceneManager.LoadScene("Continue");
+                    SceneManager.LoadScene("02_CarregarJogo");
                     break;
                 }
-            case "ContinuarOp1":
+            
+            case "Creditos":
                 {
-                    SceneManager.LoadScene("FaseAlpha1");
+                    Debug.Log("Creditos");
                     break;
                 }
-            case "ContinuarOp2":
+            case "Sair":
                 {
-                    SceneManager.LoadScene("FaseAlpha1");
-                    break;
-                }
-            case "ContinuarOp3":
-                {
-                    SceneManager.LoadScene("FaseAlpha1");
-                    break;
-                }
-
-            case "FasesAlpha":
-                {
-                    SceneManager.LoadScene("FaseAlpha");
-                    break;
-                }
-            case "FasesBeta":
-                {
-                    SceneManager.LoadScene("FaseBeta");
-                    break;
-                }
-            case "FasesDelta":
-                {
-                    SceneManager.LoadScene("FaseGama");
-                    break;
-                }
-            case "FasesZeta":
-                {
-                    SceneManager.LoadScene("FaseZeta");
+                    Debug.Log("Sair");
                     break;
                 }
             default:
@@ -79,24 +40,113 @@ public class AcoesBotoes : MonoBehaviour
         }
     }
 
-    public void FaseAlpha(int i)
+    
+
+    public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
+    {
+        switch (opcao)
+        {
+            case "NovoJogo":
+                {
+                    SceneManager.LoadScene("03_01_SelectTowers");
+                    break;
+                }
+            case "Voltar":
+                {
+                    SceneManager.LoadScene("01_MainMenu");
+                    break;
+                }
+
+            default:
+                {
+                    Debug.Log("Opção Inválida");
+                    break;
+                }
+        }
+    }
+
+
+    public void AcaoBotaoCarregarJogo(string opcao)
+    {
+        switch (opcao)
+        {
+
+            case "NovoJOp1":
+                {
+                    //SceneManager.LoadScene("MundoMap");
+                    break;
+                }
+            case "NovoJOp2":
+                {
+                    //SceneManager.LoadScene("MundoMap");
+                    break;
+                }
+            case "NovoJOp3":
+                {
+                    //SceneManager.LoadScene("MundoMap");
+                    break;
+                }
+            case "Voltar":
+                {
+                    SceneManager.LoadScene("01_MainMenu");
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Opção Inválida");
+                    break;
+                }
+        }
+    }
+
+    public void AcaoBotaoSelectTowers(string opcao)
+    {
+        switch (opcao)
+        {
+
+            case "Voltar":
+                {
+                    SceneManager.LoadScene("02_CarregarJogo");
+                    break;
+                }
+
+            case "Madeira":
+                {
+                    SceneManager.LoadScene("03_02_SelecaoFases");
+                    break;
+                }
+            default:
+                {
+                    Debug.Log("Opção Inválida");
+                    break;
+                }
+        }
+    }
+
+
+    public void AcaoBotaoSelecaoFaseWood(int i)
     {
         switch (i)
         {
             case 1:
                 {
-                    SceneManager.LoadScene("FaseAlpha1");
+                    SceneManager.LoadScene("04_01_towerWood");
                     break;
                 }
 
             case 2:
                 {
-                    SceneManager.LoadScene("FaseAlpha1");
+                    SceneManager.LoadScene("04_02_towerWood");
+                    break;
+                }
+            case -1:
+                {
+                    SceneManager.LoadScene("03_01_SelectTowers");
                     break;
                 }
             default:
                 {
-                    Debug.Log("Inicia a default");
+                    Debug.Log("Opção Inválida");
                     break;
                 }
         }

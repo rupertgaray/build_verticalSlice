@@ -4,11 +4,10 @@ using UnityEngine;
 
 public class Player : MonoBehaviour {
 
-    public int vidas, pontos;
+    
     
 	void Awake () {
-        vidas = 3;
-        pontos = 0;
+        
 	}
 	
 	// Update is called once per frame

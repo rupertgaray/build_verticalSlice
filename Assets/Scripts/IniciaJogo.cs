@@ -24,6 +24,6 @@ public class IniciaJogo : MonoBehaviour {
 
     private void ProximaCena()
     {
-        SceneManager.LoadScene("Menu");
+        SceneManager.LoadScene("01_MainMenu");
     }
 }

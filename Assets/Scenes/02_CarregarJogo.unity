@@ -773,6 +773,26 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 44.42
       objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AcaoBotaoNovoJogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114609829265448240, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62daa6949291374468741bdf4633e7ea, type: 2}
   m_IsPrefabParent: 0
@@ -1368,7 +1388,7 @@ Prefab:
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: NovoJOp1
+      value: NovoJOp2
       objectReference: {fileID: 0}
     - target: {fileID: 114943541357836810, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
@@ -1743,6 +1763,16 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 44.42
       objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AcaoBotaoNovoJogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62daa6949291374468741bdf4633e7ea, type: 2}
   m_IsPrefabParent: 0
@@ -1860,7 +1890,7 @@ Prefab:
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
-      value: NovoJOp1
+      value: NovoJOp3
       objectReference: {fileID: 0}
     - target: {fileID: 114943541357836810, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
@@ -2235,6 +2265,11 @@ Prefab:
       propertyPath: m_SizeDelta.y
       value: 44.42
       objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: AcaoBotaoNovoJogo
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62daa6949291374468741bdf4633e7ea, type: 2}
   m_IsPrefabParent: 0
@@ -2570,15 +2605,15 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: 8e0b7613ffa2ae745a4163a03cf5ffac, type: 3}
-        m_MethodName: set_name
+      - m_Target: {fileID: 1616250694}
+        m_MethodName: AcaoBotaoCarregarJogo
         m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: MainMenu
+          m_StringArgument: Voltar
           m_BoolArgument: 0
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,

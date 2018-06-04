@@ -6,32 +6,29 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/PressStart.unity
+    path: Assets/Scenes/00_PressStart.unity
     guid: 197c208988b50f64c9580e3cb65122b2
   - enabled: 1
-    path: Assets/Scenes/MainMenu.unity
+    path: Assets/Scenes/01_MainMenu.unity
     guid: 9856b5b985400ac428fce49431c68eea
   - enabled: 1
-    path: Assets/Scenes/NovoJogo.unity
+    path: Assets/Scenes/02_NovoJogo.unity
     guid: a979b2e9786843b4eb98a72f07911284
   - enabled: 1
-    path: Assets/Scenes/Continue.unity
-    guid: 5310b34efab88b244ade53ce32c72085
+    path: Assets/Scenes/02_NovoJogo_Entrada_Dados.unity
+    guid: 5b4ca987ce700894583adcb702c3a32a
   - enabled: 1
-    path: Assets/Scenes/SelectTowers.unity
+    path: Assets/Scenes/03_01_SelectTowers.unity
     guid: 897adb4d2b54dc3499b7fa155b673914
   - enabled: 1
-    path: Assets/Scenes/SelecaoFases.unity
+    path: Assets/Scenes/03_02_SelecaoFases.unity
     guid: 366a835ccf0c2754c89e4818eb2ed5a2
   - enabled: 1
-    path: Assets/Scenes/FaseAlpha1.unity
+    path: Assets/Scenes/04_01_towerWood.unity
     guid: e38d6cda797843f4f9e9ee5a546edccd
-  - enabled: 1
-    path: Assets/Scenes/00_FirstMainScene.unity
-    guid: 7375bb847c586f641b58055a6c9959ba
   - enabled: 1
     path: Assets/Scenes/_anim_collectables.unity
     guid: b6a173ac2ebad9b479b9781a707acbd1
   - enabled: 1
-    path: Assets/Scenes/FaseAlpha2.unity
+    path: Assets/Scenes/04_02_towerWood.unity
     guid: 199b87f9c0dfb4c4b9e6c67f7a85e6c1
