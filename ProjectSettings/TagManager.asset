@@ -3,7 +3,9 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - BtMenu
+  - MetodosMenu
   layers:
   - Default
   - TransparentFX
@@ -13,8 +15,8 @@ TagManager:
   - UI
   - 
   - 
+  - Bt
   - Icon
-  - 
   - 
   - 
   - 
@@ -41,9 +43,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Icon
-    uniqueID: 1342055971
-    locked: 0
   - name: Bt
     uniqueID: 1540900077
+    locked: 0
+  - name: Icon
+    uniqueID: 1342055971
     locked: 0

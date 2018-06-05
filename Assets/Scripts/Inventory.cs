@@ -5,20 +5,22 @@ using UnityEngine.UI;
 
 public class Inventory : MonoBehaviour, IHasChanged
 {
-    [SerializeField] Transform slots;
-    [SerializeField] Text inventoryText;
 
-    // Use this for initialization
+    [SerializeField] Transform slots;
+    private string texto;
+    private ArrayList listaMovimentos;
+
     void Start()
     {
+        listaMovimentos = new ArrayList();
         HasChanged();
     }
 
     #region IHasChanged implementation
     public void HasChanged()
     {
-        /*System.Text.StringBuilder builder = new System.Text.StringBuilder();
-        builder.Append(" - ");
+        System.Text.StringBuilder builder = new System.Text.StringBuilder();
+        //builder.Append(" - ");
         foreach (Transform slotTransform in slots)
         {
             GameObject item = slotTransform.GetComponent<Slot>().item;
@@ -28,9 +30,22 @@ public class Inventory : MonoBehaviour, IHasChanged
                 builder.Append(" - ");
             }
         }
-        inventoryText.text = builder.ToString();*/
+        texto = builder.ToString();
+        //Debug.Log(texto);
+        ListarMovimentos();
     }
     #endregion
+
+    public string[] ListarMovimentos()
+    {
+        string[] mov = texto.Split('-');
+        /*foreach(string word in mov)
+        {
+            Debug.Log(word);
+        }*/
+        
+        return mov;
+    }
 }
 
 
