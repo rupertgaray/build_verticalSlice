@@ -8,11 +8,10 @@ public class Inventory : MonoBehaviour, IHasChanged
 
     [SerializeField] Transform slots;
     private string texto;
-    private ArrayList listaMovimentos;
+    
 
     void Start()
     {
-        listaMovimentos = new ArrayList();
         HasChanged();
     }
 

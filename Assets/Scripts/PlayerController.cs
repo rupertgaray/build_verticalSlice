@@ -2,6 +2,7 @@
 using System.Collections;
 using UnityEngine.EventSystems;
 using System;
+using UnityEngine.UI;
 
 public class PlayerController : MonoBehaviour{
 
@@ -23,11 +24,13 @@ public class PlayerController : MonoBehaviour{
         metodos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
         if (metodos.Length > 1)
         {
-            btPlay.SetActive(true);
+            //btPlay.SetActive(true);
+            btPlay.GetComponent<Button>().interactable = true;
         }
         else
         {
-            btPlay.SetActive(false);
+            //btPlay.SetActive(false);
+            btPlay.GetComponent<Button>().interactable = false;
         }
     }
 
@@ -61,7 +64,10 @@ public class PlayerController : MonoBehaviour{
 
     private void ExecutaJogada(string[] comandosFinal)
     {
-        
+        foreach(string aux in comandosFinal)
+        {
+            Debug.Log(aux);
+        }
     }
 }
 
