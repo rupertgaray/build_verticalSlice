@@ -2614,8 +2614,8 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2081902128}
-  - {fileID: 122679686}
   - {fileID: 1053063833}
+  - {fileID: 122679686}
   - {fileID: 925857940}
   - {fileID: 978897274}
   - {fileID: 332405639}
@@ -5715,10 +5715,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   painelInventario: {fileID: 1635767167}
   btPlay: {fileID: 666778982}
-  Player: {fileID: 2081902123}
-  ListaBtMetodos: {fileID: 1680729735}
+  player: {fileID: 2081902123}
+  listaBtMetodos: {fileID: 1680729735}
   metodos: []
   comandosFinal: []
+  pos: 137.5
+  speed: 0
+  executaPlay: 0
+  delayLiberado: 0
+  movimentos: 0
+  totalMovimentos: 0
+  countdown: 3
+  forcaPulo: 200
 --- !u!4 &1133710410
 Transform:
   m_ObjectHideFlags: 0
@@ -6573,11 +6581,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.879
+      value: -0.87
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -6601,11 +6609,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1172974073008732, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_Name
-      value: Bloco (1)
+      value: Bloco (0)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.8539937
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.8658146
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
@@ -7300,11 +7323,11 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 0.879
+      value: 0.87
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -0.003
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_LocalPosition.z
@@ -7333,6 +7356,16 @@ Prefab:
     - target: {fileID: 1172974073008732, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_Name
       value: Bloco (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.8658146
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
@@ -8493,7 +8526,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1629532807}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1133710409}
+        m_MethodName: AcaoBotaoOpenTips
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1629532804}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1629532807
@@ -9053,11 +9097,26 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4217004087451294, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1172974073008732, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
       propertyPath: m_Name
-      value: Bloco(0)
+      value: Bloco (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Offset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Size.x
+      value: 0.8539937
+      objectReference: {fileID: 0}
+    - target: {fileID: 61366776334407966, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f,
+        type: 2}
+      propertyPath: m_Size.y
+      value: 0.8658146
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 1b2b4ae5b00adf847b6c4bab4c1ecd1f, type: 2}
@@ -9205,7 +9264,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1769577922}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1133710409}
+        m_MethodName: AcaoBotaoOpenTips
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1629532804}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1769577922
@@ -10630,12 +10700,12 @@ Prefab:
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.x
-      value: 5.5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_SpriteTilingProperty.oldSize.y
-      value: 5.5
+      value: 2.2
       objectReference: {fileID: 0}
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
@@ -10665,22 +10735,31 @@ Prefab:
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_Size.x
-      value: 1.82
+      value: 0.99018395
       objectReference: {fileID: 0}
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_Size.y
-      value: 3.9
+      value: 2.186831
       objectReference: {fileID: 0}
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_Offset.x
-      value: -0.08
+      value: -0.013079166
       objectReference: {fileID: 0}
     - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
+        type: 2}
+      propertyPath: m_Offset.y
+      value: 0.013384342
+      objectReference: {fileID: 0}
+    - target: {fileID: 1457248230978418, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
+      propertyPath: m_TagString
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
