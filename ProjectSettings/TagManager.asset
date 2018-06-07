@@ -13,6 +13,8 @@ TagManager:
   - CountCristal
   - Star
   - Cristal
+  - SlotWork
+  - PainelWork
   layers:
   - Default
   - TransparentFX

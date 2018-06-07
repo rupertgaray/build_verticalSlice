@@ -7,12 +7,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
+    public Animator animator;
     
     public GameObject painelInventario;
+    public GameObject painelWork;
     public GameObject btPlay;
     public GameObject player;
     public GameObject listaBtMetodos;
-    
+    public GameObject[] slots;
 
     public string[] metodos;
     public string[] comandosFinal;
@@ -22,7 +24,8 @@ public class PlayerController : MonoBehaviour
     private EstadosPlayer estadoAtual;
     public int movimentos, totalMovimentos;
     public float countdown = 3.0f;
-    public float forcaPulo = 200f;
+    public float forcaPuloX = 35;
+    public float forcaPuloY = 200f;
 
 
     public int moedasFase;
@@ -31,6 +34,11 @@ public class PlayerController : MonoBehaviour
     {
         estadoAtual = EstadosPlayer.Parado;
         moedasFase = 0;
+        //slots = painelInventario.gameObject.GetComponentsInChildren<GameObject>();
+        //Debug.Log("Teste: " + slots[0].name);
+        /*animator.SetBool("playerIsGrounded", true);
+        animator.SetBool("playerIsDead", false);
+        animator.SetFloat("playerSpeed", Math.Abs(player.gameObject.GetComponent<Transform>().position.x / speed));*/
     }
 
     // Update is called once per frame
@@ -75,7 +83,7 @@ public class PlayerController : MonoBehaviour
                     case EstadosPlayer.Pulando:
                         {
                             Debug.Log("Pulou o personagem");
-
+                            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
                             VerificaProximoMovimento();
                             break;
                         }
@@ -113,6 +121,8 @@ public class PlayerController : MonoBehaviour
             }
 
         }
+
+        
     }
 
     private void VerificaProximoMovimento()
@@ -147,8 +157,6 @@ public class PlayerController : MonoBehaviour
         movimentos++;
     }
 
-
-
     public void AcaoBotaoMenuMetodos(GameObject go)
     {
         if (go.activeSelf == false)
@@ -175,10 +183,8 @@ public class PlayerController : MonoBehaviour
 
     public void AcaoBotaoPlay()
     {
-        Debug.Log(btPlay.GetComponent<Button>().IsInteractable());
         btPlay.GetComponent<Button>().interactable = false;
-        Debug.Log(btPlay.GetComponent<Button>().IsInteractable());
-        comandosFinal = new string[(metodos.Length) * 2];
+       comandosFinal = new string[(metodos.Length) * 2];
         int count = 0;
         for (int i = 0; i < metodos.Length - 1; i++)
         {
