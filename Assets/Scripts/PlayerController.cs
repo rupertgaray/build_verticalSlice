@@ -28,8 +28,7 @@ public class PlayerController : MonoBehaviour
     public float countdown = 3.0f;
     public float forcaPuloX = 35;
     public float forcaPuloY = 200f;
-
-
+    
     public int moedasFase;
 
     void Start()
@@ -46,6 +45,13 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
+        /*if(estadoAtual == EstadosPlayer.Movendo)
+        {
+            animator.SetBool("playerCaminhando", true);
+        }*/
+
+
         metodos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
         if (metodos.Length > 1 && executaPlay == false)
         {
@@ -75,7 +81,10 @@ public class PlayerController : MonoBehaviour
                         }
                     case EstadosPlayer.Movendo:
                         {
+                            animator.SetBool("playerParado", false);
+                            animator.SetBool("playerCaminhando", true);
                             Debug.Log("Movimentou o personagem");
+                            
                             player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y));
                             Debug.Log(player.GetComponent<Transform>().position.x);
 
@@ -84,6 +93,8 @@ public class PlayerController : MonoBehaviour
                         }
                     case EstadosPlayer.Pulando:
                         {
+                            animator.SetBool("playerParado", false);
+                            animator.SetBool("playerPulando", true);
                             Debug.Log("Pulou o personagem");
                             player.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
                             VerificaProximoMovimento();
@@ -91,6 +102,10 @@ public class PlayerController : MonoBehaviour
                         }
                     case EstadosPlayer.Delay:
                         {
+                            animator.SetBool("playerParado", true);
+                            animator.SetBool("playerCaminhando", false);
+                            animator.SetBool("playerPulando", false);
+
                             if (countdown <= 0.0f)
                             {
                                 delayLiberado = true;
@@ -156,36 +171,6 @@ public class PlayerController : MonoBehaviour
 
         }
         movimentos++;
-
-
-
-        /*if (comandosFinal[movimentos] == "Mover")
-        {
-            Debug.Log("Mover");
-            estadoAtual = EstadosPlayer.Movendo;
-        }
-        else if (comandosFinal[movimentos] == "Pular")
-        {
-            Debug.Log("Pular");
-            estadoAtual = EstadosPlayer.Pulando;
-        }
-        else if (comandosFinal[movimentos] == "Delay")
-        {
-            countdown = 3.0f;
-            estadoAtual = EstadosPlayer.Delay;
-            Debug.Log("Delay");
-        }
-        else if (comandosFinal[movimentos] == "Fim")
-        {
-            estadoAtual = EstadosPlayer.Parado;
-            Debug.Log("Parado");
-        }
-        else
-        {
-            Debug.Log("Opção Inválida: " + comandosFinal[movimentos]);
-
-        }
-        movimentos++;*/
     }
 
     public void AcaoBotaoMenuMetodos(GameObject go)
