@@ -19,6 +19,7 @@ TagManager:
   - For4x
   - ForFim2x
   - ForFim4x
+  - CountPontuacaoTotal
   layers:
   - Default
   - TransparentFX

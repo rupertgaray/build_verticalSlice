@@ -8,17 +8,20 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
 
+    //[SerializeField] Transform slots;
+    public Transform slots;
+
     public Animator animator;
 
+    
     public GameObject painelInventario;
     public GameObject painelWork;
     public GameObject btPlay;
     public GameObject player;
     public GameObject listaBtMetodos;
-    public GameObject[] slots;
+    //public GameObject[] slots;
 
     public string[] metodos;
-    //public string[] comandosFinal;
     public IList<string> comandosFinalList;
     public float pos, speed;
     public bool executaPlay = false;
@@ -28,30 +31,20 @@ public class PlayerController : MonoBehaviour
     public float countdown = 3.0f;
     public float forcaPuloX = 35;
     public float forcaPuloY = 200f;
+
     
-    public int moedasFase;
+    public IList<int> pintarSlots = new List<int>(); 
+
+    public Slot[] slotsWork;
+    public int jogadaCount = 0;
 
     void Start()
     {
         estadoAtual = EstadosPlayer.Parado;
-        moedasFase = 0;
-        //slots = painelInventario.gameObject.GetComponentsInChildren<GameObject>();
-        //Debug.Log("Teste: " + slots[0].name);
-        /*animator.SetBool("playerIsGrounded", true);
-        animator.SetBool("playerIsDead", false);
-        animator.SetFloat("playerSpeed", Math.Abs(player.gameObject.GetComponent<Transform>().position.x / speed));*/
     }
 
-    // Update is called once per frame
     void Update()
     {
-
-        /*if(estadoAtual == EstadosPlayer.Movendo)
-        {
-            animator.SetBool("playerCaminhando", true);
-        }*/
-
-
         metodos = painelInventario.GetComponent<Inventory>().ListarMovimentos();
         if (metodos.Length > 1 && executaPlay == false)
         {
@@ -128,13 +121,13 @@ public class PlayerController : MonoBehaviour
                             executaPlay = false;
                             break;
                         }
-
                     default:
                         {
                             Debug.Log("Opção inválida");
                             break;
                         }
                 }
+                
             }
 
         }
@@ -148,6 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("Mover");
             estadoAtual = EstadosPlayer.Movendo;
+
         }
         else if (comandosFinalList[movimentos].ToString() == "Pular")
         {
@@ -156,6 +150,8 @@ public class PlayerController : MonoBehaviour
         }
         else if (comandosFinalList[movimentos].ToString() == "Delay")
         {
+            PintarSlot(jogadaCount);
+            jogadaCount++;
             countdown = 3.0f;
             estadoAtual = EstadosPlayer.Delay;
             Debug.Log("Delay");
@@ -165,11 +161,32 @@ public class PlayerController : MonoBehaviour
             estadoAtual = EstadosPlayer.Parado;
             Debug.Log("Parado");
         }
+        else if (comandosFinalList[movimentos].ToString() == "Repetir2x")
+        {
+            estadoAtual = EstadosPlayer.Aguardando;
+            Debug.Log("Parado");
+        }
+        else if (comandosFinalList[movimentos].ToString() == "FimFor2x")
+        {
+            estadoAtual = EstadosPlayer.Aguardando;
+            Debug.Log("Parado");
+        }
+        else if (comandosFinalList[movimentos].ToString() == "Repetir4x")
+        {
+            estadoAtual = EstadosPlayer.Aguardando;
+            Debug.Log("Parado");
+        }
+        else if (comandosFinalList[movimentos].ToString() == "FimFor4x")
+        {
+            estadoAtual = EstadosPlayer.Aguardando;
+            Debug.Log("Parado");
+        }
         else
         {
             Debug.Log("Opção Inválida: " + comandosFinalList[movimentos].ToString());
 
         }
+        
         movimentos++;
     }
 
@@ -199,15 +216,17 @@ public class PlayerController : MonoBehaviour
 
     public void AcaoBotaoPlay()
     {
-        btPlay.GetComponent<Button>().interactable = false;
+        
+       btPlay.GetComponent<Button>().interactable = false;
         comandosFinalList = new List<string>();
         for (int i = 0; i < metodos.Length - 1; i++)
         {
             if (metodos[i].Trim().CompareTo("Repetir2x") == 0)
             {
+                
                 int primeiroI = i + 1;
                 IList<string> listaFor = new List<string>();
-
+                listaFor.Add(metodos[i].Trim());
                 while (metodos[primeiroI].Trim().CompareTo("FimFor2x") != 0)
                 {
                     listaFor.Add(metodos[primeiroI].Trim());
@@ -218,9 +237,13 @@ public class PlayerController : MonoBehaviour
                 {
                     foreach (string m in listaFor)
                     {
-                        Debug.Log("comandosFinalList.Count:" + comandosFinalList.Count);
                         comandosFinalList.Add(m);
                         comandosFinalList.Add("Delay");
+                    }
+
+                    if (j == 0)
+                    {
+                        comandosFinalList.Add("FimFor2x");
                     }
                 }
                 i = primeiroI;
@@ -229,7 +252,7 @@ public class PlayerController : MonoBehaviour
             {
                 int primeiroI = i + 1;
                 IList<string> listaFor = new List<string>();
-
+                listaFor.Add(metodos[i].Trim());
                 while (metodos[primeiroI].Trim().CompareTo("FimFor4x") != 0)
                 {
                     listaFor.Add(metodos[primeiroI].Trim());
@@ -247,11 +270,15 @@ public class PlayerController : MonoBehaviour
                 }
                 i = primeiroI;
             }
-
+            //if (metodos[i].Trim().CompareTo("FimFor2x") == 0 || (metodos[i].Trim().CompareTo("FimFor4x") == 0))
+            //{
+               
+            //}
             else
             {
                 comandosFinalList.Add(metodos[i].Trim());
                 comandosFinalList.Add("Delay");
+                pintarSlots.Add(i);
             }
         }
         comandosFinalList.Add("Fim");
@@ -260,9 +287,53 @@ public class PlayerController : MonoBehaviour
         estadoAtual = EstadosPlayer.Aguardando;
         executaPlay = true;
 
+        
+        slotsWork = painelWork.GetComponentsInChildren<Slot>();
+
+        foreach(string a in comandosFinalList)
+        {
+            Debug.Log(a);
+        }
+
+
         Debug.Log("Inicio");
     }
 
+    private void PintarSlot(int i)
+    {
+        Debug.Log(i);
+        Slot st = slotsWork[i];
+        Debug.Log("st.name" + st.name);
+        if (st.item != null)
+        {
+            Debug.Log("st.item: " + st.item.name);
+            if (st.item.name.CompareTo("FimFor2x") == 0) {
+                Debug.LogWarning("Entrou");
+                st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
+                int aux = i;
+                Debug.LogWarning("Aux: " + aux);
+                Slot stAnterior = slotsWork[aux];
+                Debug.LogWarning("stAnterior: " + stAnterior.item.name);
+
+                st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
+                do
+                {
+                    stAnterior.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
+
+                    aux--;
+                    Debug.LogWarning("Aux: " + aux);
+                    
+                    stAnterior = slotsWork[aux];
+                    Debug.LogWarning("stAnterior: " + stAnterior.item.name);
+                    
+
+                } while (stAnterior.item.name.CompareTo("Repetir2x") != 0);
+                stAnterior.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
+            }
+
+        st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
+    }
+    }
 }
 
 public enum EstadosPlayer
