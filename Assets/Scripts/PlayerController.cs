@@ -37,6 +37,8 @@ public class PlayerController : MonoBehaviour
 
     public Slot[] slotsWork;
     public int jogadaCount = 0;
+    public int iniFor = 0;
+    public int fimFor = 0;
 
     void Start()
     {
@@ -163,6 +165,7 @@ public class PlayerController : MonoBehaviour
         }
         else if (comandosFinalList[movimentos].ToString() == "Repetir2x")
         {
+            //iniFor = 
             estadoAtual = EstadosPlayer.Aguardando;
             Debug.Log("Parado");
         }
@@ -301,38 +304,50 @@ public class PlayerController : MonoBehaviour
 
     private void PintarSlot(int i)
     {
-        Debug.Log(i);
+        
         Slot st = slotsWork[i];
-        Debug.Log("st.name" + st.name);
+        Slot stAnterior;
+
         if (st.item != null)
         {
-            Debug.Log("st.item: " + st.item.name);
-            if (st.item.name.CompareTo("FimFor2x") == 0) {
-                Debug.LogWarning("Entrou");
+            if (st.item.name.CompareTo("Repetir2x") == 0)
+            {
+                iniFor = jogadaCount;
                 st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
-                int aux = i;
-                Debug.LogWarning("Aux: " + aux);
-                Slot stAnterior = slotsWork[aux];
-                Debug.LogWarning("stAnterior: " + stAnterior.item.name);
-
-                st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
-                do
-                {
-                    stAnterior.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
-
-                    aux--;
-                    Debug.LogWarning("Aux: " + aux);
-                    
-                    stAnterior = slotsWork[aux];
-                    Debug.LogWarning("stAnterior: " + stAnterior.item.name);
-                    
-
-                } while (stAnterior.item.name.CompareTo("Repetir2x") != 0);
-                stAnterior.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 1f);
             }
 
-        st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
-    }
+            else if (st.item.name.CompareTo("FimFor2x") == 0 && fimFor == 0)
+            {
+                fimFor = jogadaCount;
+
+                //Debug.LogWarning("Entrou");
+
+                //st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
+
+                int aux = iniFor;
+
+                while (aux <= fimFor)
+                {
+                    Debug.LogWarning("Aux: " + aux);
+                    stAnterior = slotsWork[aux];
+                    stAnterior.item.GetComponent<Image>().color = new Color(stAnterior.item.GetComponent<Image>().color.r, stAnterior.item.GetComponent<Image>().color.g, stAnterior.item.GetComponent<Image>().color.b, 1f);
+                    aux++;
+                }
+
+                jogadaCount = iniFor;
+                stAnterior = slotsWork[iniFor];
+                stAnterior.item.GetComponent<Image>().color = new Color(stAnterior.item.GetComponent<Image>().color.r, stAnterior.item.GetComponent<Image>().color.g, stAnterior.item.GetComponent<Image>().color.b, 0.5f);
+
+            }
+            /*else if (st.item.name.CompareTo("FimFor2x") == 0 && fimFor != 0)
+            {
+                st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
+            }*/
+            else
+            {
+                st.item.GetComponent<Image>().color = new Color(st.item.GetComponent<Image>().color.r, st.item.GetComponent<Image>().color.g, st.item.GetComponent<Image>().color.b, 0.5f);
+            }
+        }
     }
 }
 
