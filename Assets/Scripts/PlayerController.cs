@@ -3,12 +3,13 @@ using System.Collections;
 using UnityEngine.EventSystems;
 using System;
 using UnityEngine.UI;
+using System.Collections.Generic;
 
 public class PlayerController : MonoBehaviour
 {
 
     public Animator animator;
-    
+
     public GameObject painelInventario;
     public GameObject painelWork;
     public GameObject btPlay;
@@ -17,7 +18,8 @@ public class PlayerController : MonoBehaviour
     public GameObject[] slots;
 
     public string[] metodos;
-    public string[] comandosFinal;
+    //public string[] comandosFinal;
+    public IList<string> comandosFinalList;
     public float pos, speed;
     public bool executaPlay = false;
     public bool delayLiberado = false;
@@ -122,13 +124,42 @@ public class PlayerController : MonoBehaviour
 
         }
 
-        
+
     }
 
     private void VerificaProximoMovimento()
     {
+        if (comandosFinalList[movimentos].ToString() == "Mover")
+        {
+            Debug.Log("Mover");
+            estadoAtual = EstadosPlayer.Movendo;
+        }
+        else if (comandosFinalList[movimentos].ToString() == "Pular")
+        {
+            Debug.Log("Pular");
+            estadoAtual = EstadosPlayer.Pulando;
+        }
+        else if (comandosFinalList[movimentos].ToString() == "Delay")
+        {
+            countdown = 3.0f;
+            estadoAtual = EstadosPlayer.Delay;
+            Debug.Log("Delay");
+        }
+        else if (comandosFinalList[movimentos].ToString() == "Fim")
+        {
+            estadoAtual = EstadosPlayer.Parado;
+            Debug.Log("Parado");
+        }
+        else
+        {
+            Debug.Log("Opção Inválida: " + comandosFinalList[movimentos].ToString());
 
-        if (comandosFinal[movimentos] == "Mover")
+        }
+        movimentos++;
+
+
+
+        /*if (comandosFinal[movimentos] == "Mover")
         {
             Debug.Log("Mover");
             estadoAtual = EstadosPlayer.Movendo;
@@ -151,10 +182,10 @@ public class PlayerController : MonoBehaviour
         }
         else
         {
-            Debug.Log("Opção Inválida");
+            Debug.Log("Opção Inválida: " + comandosFinal[movimentos]);
 
         }
-        movimentos++;
+        movimentos++;*/
     }
 
     public void AcaoBotaoMenuMetodos(GameObject go)
@@ -184,20 +215,66 @@ public class PlayerController : MonoBehaviour
     public void AcaoBotaoPlay()
     {
         btPlay.GetComponent<Button>().interactable = false;
-       comandosFinal = new string[(metodos.Length) * 2];
-        int count = 0;
+        comandosFinalList = new List<string>();
         for (int i = 0; i < metodos.Length - 1; i++)
         {
-            comandosFinal[count] = metodos[i].Trim();
-            count++;
-            comandosFinal[count] = "Delay";
-            count++;
+            if (metodos[i].Trim().CompareTo("Repetir2x") == 0)
+            {
+                int primeiroI = i + 1;
+                IList<string> listaFor = new List<string>();
+
+                while (metodos[primeiroI].Trim().CompareTo("FimFor2x") != 0)
+                {
+                    listaFor.Add(metodos[primeiroI].Trim());
+                    primeiroI++;
+                }
+
+                for (int j = 0; j < 2; j++)
+                {
+                    foreach (string m in listaFor)
+                    {
+                        Debug.Log("comandosFinalList.Count:" + comandosFinalList.Count);
+                        comandosFinalList.Add(m);
+                        comandosFinalList.Add("Delay");
+                    }
+                }
+                i = primeiroI;
+            }
+            if (metodos[i].Trim().CompareTo("Repetir4x") == 0)
+            {
+                int primeiroI = i + 1;
+                IList<string> listaFor = new List<string>();
+
+                while (metodos[primeiroI].Trim().CompareTo("FimFor4x") != 0)
+                {
+                    listaFor.Add(metodos[primeiroI].Trim());
+                    primeiroI++;
+                }
+
+                for (int j = 0; j < 4; j++)
+                {
+                    foreach (string m in listaFor)
+                    {
+                        Debug.Log("comandosFinalList.Count:" + comandosFinalList.Count);
+                        comandosFinalList.Add(m);
+                        comandosFinalList.Add("Delay");
+                    }
+                }
+                i = primeiroI;
+            }
+
+            else
+            {
+                comandosFinalList.Add(metodos[i].Trim());
+                comandosFinalList.Add("Delay");
+            }
         }
-        comandosFinal[count] = "Fim";
+        comandosFinalList.Add("Fim");
         movimentos = 0;
-        totalMovimentos = count;
+        totalMovimentos = comandosFinalList.Count;
         estadoAtual = EstadosPlayer.Aguardando;
         executaPlay = true;
+
         Debug.Log("Inicio");
     }
 

@@ -15,6 +15,10 @@ TagManager:
   - Cristal
   - SlotWork
   - PainelWork
+  - For2x
+  - For4x
+  - ForFim2x
+  - ForFim4x
   layers:
   - Default
   - TransparentFX
