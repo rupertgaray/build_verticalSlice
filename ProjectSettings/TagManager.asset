@@ -8,6 +8,11 @@ TagManager:
   - MetodosMenu
   - Coin
   - PlayerController
+  - CountCoin
+  - CountStar
+  - CountCristal
+  - Star
+  - Cristal
   layers:
   - Default
   - TransparentFX

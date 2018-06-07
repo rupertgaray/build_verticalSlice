@@ -195,18 +195,6 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Inicio");
     }
 
-    /*private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Coin"))
-        {
-            moedasFase += 10;
-            //Debug.Log("Total de moedas: " + moedasFase);
-            Debug.Log(moedasFase.ToString());
-            countCoin.text = moedasFase.ToString();
-            collision.gameObject.SetActive(false);
-        }
-    }*/
-    
 }
 
 public enum EstadosPlayer
