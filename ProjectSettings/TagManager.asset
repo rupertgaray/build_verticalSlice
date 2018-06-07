@@ -6,6 +6,8 @@ TagManager:
   tags:
   - BtMenu
   - MetodosMenu
+  - Coin
+  - PlayerController
   layers:
   - Default
   - TransparentFX

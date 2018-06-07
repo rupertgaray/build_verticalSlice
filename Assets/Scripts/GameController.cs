@@ -149,6 +149,8 @@ public class GameController : MonoBehaviour {
             //UIManager.instace.UpdateUI();
         }
     }
+
+    
 }
 
 [Serializable]

@@ -7,11 +7,13 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour
 {
 
-
+    
     public GameObject painelInventario;
     public GameObject btPlay;
     public GameObject player;
     public GameObject listaBtMetodos;
+    
+
     public string[] metodos;
     public string[] comandosFinal;
     public float pos, speed;
@@ -22,9 +24,13 @@ public class PlayerController : MonoBehaviour
     public float countdown = 3.0f;
     public float forcaPulo = 200f;
 
+
+    public int moedasFase;
+
     void Start()
     {
         estadoAtual = EstadosPlayer.Parado;
+        moedasFase = 0;
     }
 
     // Update is called once per frame
@@ -189,70 +195,18 @@ public class PlayerController : MonoBehaviour
         Debug.Log("Inicio");
     }
 
-    /*private void ExecutaJogada(string[] comandosFinal)
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
-
-        //bool isMoving = false;
-        foreach (string aux in comandosFinal)
+        if (collision.gameObject.CompareTag("Coin"))
         {
-            //Debug.Log(aux);
-            switch (aux.Trim())
-            {
-                case "Mover":
-                    {
-                        Debug.Log("Mover");
-                        player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y));
-                        break;
-                        //Vector3 to = new Vector3(player.GetComponent<Transform>().transform.position.x + vel, player.GetComponent<Transform>().transform.position.y, player.GetComponent<Transform>().transform.position.z);
-                        //player.GetComponent<Transform>().transform.position = Vector3.Lerp(player.GetComponent<Transform>().transform.position, to, speed * Time.deltaTime);
-                        //Debug.Log("Mover");
-
-
-                        /*if (isMoving == false){
-                            isMoving = true;
-                            Debug.Log("Entrou");
-                            Vector3 to = new Vector3(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y, player.GetComponent<Transform>().transform.position.z);
-                            Debug.Log("Vector 3: (" + to.x + ", " + to.y + ", " + to.z + ")");
-                            for (float t = 0f; t < 1f; t += Time.deltaTime * speed)
-                            {
-                                Debug.Log("t: " + t);
-                                player.GetComponent<Transform>().transform.position = Vector3.Lerp(player.GetComponent<Transform>().transform.position, to, t);
-                            }
-                            transform.position = to;
-                            isMoving = false;
-                        }
-
-
-
-
-
-
-                    }
-                case "Pular":
-                    {
-                        Debug.Log("Pular");
-                        break;
-                    }
-                case "Delay":
-                    {
-                        Debug.Log("Delay");
-                        for (float t = 0f; t < 60f; t += Time.deltaTime * speed)
-                        {
-                        }
-                        break;
-                    }
-                default:
-                    {
-                        Debug.Log("Opção Inválida");
-                        break;
-                    }
-            }
+            moedasFase += 10;
+            //Debug.Log("Total de moedas: " + moedasFase);
+            Debug.Log(moedasFase.ToString());
+            countCoin.text = moedasFase.ToString();
+            collision.gameObject.SetActive(false);
         }
-        executaPlay = false;
     }*/
-
-
-
+    
 }
 
 public enum EstadosPlayer
