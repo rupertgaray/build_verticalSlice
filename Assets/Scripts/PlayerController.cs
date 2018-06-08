@@ -8,18 +8,16 @@ using System.Collections.Generic;
 public class PlayerController : MonoBehaviour
 {
 
-    //[SerializeField] Transform slots;
     public Transform slots;
 
-    public Animator animator;
+    private Animator animator;
 
     
     public GameObject painelInventario;
     public GameObject painelWork;
     public GameObject btPlay;
-    public GameObject player;
+    //public GameObject player;
     public GameObject listaBtMetodos;
-    //public GameObject[] slots;
 
     public string[] metodos;
     public IList<string> comandosFinalList;
@@ -43,6 +41,8 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         estadoAtual = EstadosPlayer.Parado;
+        //slots = GameObject.FindGameObjectWithTag("PainelBtWorkstation").GetComponent<Transform>();
+        animator = GetComponent<Animator>();
     }
 
     void Update()
@@ -80,8 +80,8 @@ public class PlayerController : MonoBehaviour
                             animator.SetBool("playerCaminhando", true);
                             Debug.Log("Movimentou o personagem");
                             
-                            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y));
-                            Debug.Log(player.GetComponent<Transform>().position.x);
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2(GetComponent<Transform>().transform.position.x + pos, GetComponent<Transform>().transform.position.y));
+                            Debug.Log(GetComponent<Transform>().position.x);
 
                             VerificaProximoMovimento();
                             break;
@@ -91,7 +91,7 @@ public class PlayerController : MonoBehaviour
                             animator.SetBool("playerParado", false);
                             animator.SetBool("playerPulando", true);
                             Debug.Log("Pulou o personagem");
-                            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
                             VerificaProximoMovimento();
                             break;
                         }

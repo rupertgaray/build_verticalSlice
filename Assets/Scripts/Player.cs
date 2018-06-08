@@ -7,19 +7,17 @@ using System.Collections.Generic;
 
 public class Player : MonoBehaviour
 {
-
-    //[SerializeField] Transform slots;
-    public Transform slots;
-
-    public Animator animator;
-
-
-    public GameObject painelInventario;
-    public GameObject painelWork;
-    public GameObject btPlay;
-    public GameObject player;
-    public GameObject listaBtMetodos;
+    //public GameObject listaBtMetodos;
+    //public GameObject player;
     //public GameObject[] slots;
+    //[SerializeField] Transform slots;
+
+    private Transform slots;
+    private Animator animator;
+    private GameObject painelInventario;
+    private GameObject painelWork;
+    private GameObject btPlay;
+    
 
     public string[] metodos;
     public IList<string> comandosFinalList;
@@ -28,7 +26,8 @@ public class Player : MonoBehaviour
     public bool delayLiberado = false;
     private EstadosPlayer estadoAtual;
     public int movimentos, totalMovimentos;
-    public float countdown = 3.0f;
+    private float countdown;
+    public float timeCountdown;
     public float forcaPuloX = 35;
     public float forcaPuloY = 200f;
 
@@ -43,6 +42,12 @@ public class Player : MonoBehaviour
     void Start()
     {
         estadoAtual = EstadosPlayer.Parado;
+        animator = GetComponent<Animator>();
+        painelInventario = GameObject.FindGameObjectWithTag("PainelMetodos");
+        painelWork = GameObject.FindGameObjectWithTag("PainelBtWorkstation");
+        slots  = painelWork.GetComponent<Transform>();
+        btPlay = GameObject.FindGameObjectWithTag("BtPlay");
+        countdown = timeCountdown;
     }
 
     void Update()
@@ -80,8 +85,8 @@ public class Player : MonoBehaviour
                             animator.SetBool("playerCaminhando", true);
                             Debug.Log("Movimentou o personagem");
 
-                            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(player.GetComponent<Transform>().transform.position.x + pos, player.GetComponent<Transform>().transform.position.y));
-                            Debug.Log(player.GetComponent<Transform>().position.x);
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2(GetComponent<Transform>().transform.position.x + pos, GetComponent<Transform>().transform.position.y));
+                            Debug.Log(GetComponent<Transform>().position.x);
 
                             VerificaProximoMovimento();
                             break;
@@ -91,7 +96,7 @@ public class Player : MonoBehaviour
                             animator.SetBool("playerParado", false);
                             animator.SetBool("playerPulando", true);
                             Debug.Log("Pulou o personagem");
-                            player.GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
+                            GetComponent<Rigidbody2D>().AddForce(new Vector2(forcaPuloX, forcaPuloY));
                             VerificaProximoMovimento();
                             break;
                         }
@@ -163,7 +168,7 @@ public class Player : MonoBehaviour
         {
             PintarSlot(jogadaCount);
             jogadaCount++;
-            countdown = 3.0f;
+            countdown = timeCountdown;
             estadoAtual = EstadosPlayer.Delay;
             Debug.Log("Delay");
         }
@@ -374,6 +379,11 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("playerParado", false);
         animator.SetBool("playerMorto", true);
+    }
+
+    public void AlteraVelocidade(float vel)
+    {
+        timeCountdown = vel;
     }
 }
 

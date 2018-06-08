@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour {
     public int estrelas, cristais, moedas, xp;
     public string nome;
 
+    public Player player;
+
     /*public GameState State { set; get; }
     public Stack<GameScreens> Screens = new Stack<GameScreens>();
     public GameScreens currentScreen;
