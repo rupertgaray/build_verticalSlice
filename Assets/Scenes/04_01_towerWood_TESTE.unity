@@ -2587,7 +2587,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2081902129}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -4270,7 +4270,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2081902129}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -5588,7 +5588,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 2081902129}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -7975,11 +7975,6 @@ Prefab:
       propertyPath: listaBtMetodos
       value: 
       objectReference: {fileID: 1680729735}
-    - target: {fileID: 61773043837930994, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
-        type: 2}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
   m_IsPrefabParent: 0

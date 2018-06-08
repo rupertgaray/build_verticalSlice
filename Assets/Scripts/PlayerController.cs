@@ -220,7 +220,7 @@ public class PlayerController : MonoBehaviour
     public void AcaoBotaoPlay()
     {
         
-       btPlay.GetComponent<Button>().interactable = false;
+        btPlay.GetComponent<Button>().interactable = false;
         comandosFinalList = new List<string>();
         for (int i = 0; i < metodos.Length - 1; i++)
         {

@@ -40,8 +40,6 @@ public class AcoesBotoes : MonoBehaviour
         }
     }
 
-    
-
     public void AcaoBotaoNovoJogoEntrada_Dados(string opcao)
     {
         switch (opcao)
