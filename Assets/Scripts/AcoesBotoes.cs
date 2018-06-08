@@ -73,6 +73,7 @@ public class AcoesBotoes : MonoBehaviour
 
             case "NovoJOp1":
                 {
+                    Debug.LogWarning("1");
                     SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }

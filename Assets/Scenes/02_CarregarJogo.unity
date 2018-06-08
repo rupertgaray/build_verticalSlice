@@ -408,7 +408,7 @@ Prefab:
     - target: {fileID: 114116099594669348, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_Text
-      value: 'Fase 00 / Torre null
+      value: 'Fase 01 / Torre Wood
 
 '
       objectReference: {fileID: 0}
@@ -776,7 +776,7 @@ Prefab:
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AcaoBotaoNovoJogo
+      value: AcaoBotaoCarregarJogo
       objectReference: {fileID: 0}
     - target: {fileID: 114609829265448240, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
@@ -792,6 +792,11 @@ Prefab:
         type: 2}
       propertyPath: m_Enabled
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 114601007559035184, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Text
+      value: 07/06/2018, 21:55:12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62daa6949291374468741bdf4633e7ea, type: 2}
@@ -1398,7 +1403,7 @@ Prefab:
     - target: {fileID: 114116099594669348, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_Text
-      value: 'Fase 00 / Torre null
+      value: 'Slot vazio
 
 '
       objectReference: {fileID: 0}
@@ -1766,11 +1771,16 @@ Prefab:
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AcaoBotaoNovoJogo
+      value: AcaoBotaoCarregarJogo
       objectReference: {fileID: 0}
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Interactable
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -1900,7 +1910,7 @@ Prefab:
     - target: {fileID: 114116099594669348, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_Text
-      value: 'Fase 00 / Torre null
+      value: 'Slot vazio
 
 '
       objectReference: {fileID: 0}
@@ -2268,7 +2278,12 @@ Prefab:
     - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
         type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AcaoBotaoNovoJogo
+      value: AcaoBotaoCarregarJogo
+      objectReference: {fileID: 0}
+    - target: {fileID: 114368666510780904, guid: 62daa6949291374468741bdf4633e7ea,
+        type: 2}
+      propertyPath: m_Interactable
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 62daa6949291374468741bdf4633e7ea, type: 2}
