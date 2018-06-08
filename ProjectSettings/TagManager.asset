@@ -20,6 +20,7 @@ TagManager:
   - ForFim2x
   - ForFim4x
   - CountPontuacaoTotal
+  - ColisorInferior
   layers:
   - Default
   - TransparentFX

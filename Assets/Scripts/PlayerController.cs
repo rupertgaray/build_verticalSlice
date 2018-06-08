@@ -328,7 +328,7 @@ public class PlayerController : MonoBehaviour
 
                 while (aux <= fimFor)
                 {
-                    Debug.LogWarning("Aux: " + aux);
+                    //Debug.LogWarning("Aux: " + aux);
                     stAnterior = slotsWork[aux];
                     stAnterior.item.GetComponent<Image>().color = new Color(stAnterior.item.GetComponent<Image>().color.r, stAnterior.item.GetComponent<Image>().color.g, stAnterior.item.GetComponent<Image>().color.b, 1f);
                     aux++;
@@ -349,8 +349,19 @@ public class PlayerController : MonoBehaviour
             }
         }
     }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        Debug.LogWarning("entrou");
+        if (collision.gameObject.CompareTag("ColisorInferiror"))
+        {
+            animator.SetBool("playerParado", false);
+            animator.SetBool("playerMorto", true);
+        }
+    }
 }
 
+/*
 public enum EstadosPlayer
 {
     Movendo,
@@ -358,4 +369,4 @@ public enum EstadosPlayer
     Aguardando,
     Delay,
     Parado
-}
+}*/

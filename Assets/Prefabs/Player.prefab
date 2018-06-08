@@ -22,9 +22,11 @@ GameObject:
   - component: {fileID: 212745307714122950}
   - component: {fileID: 50997338297056258}
   - component: {fileID: 61773043837930994}
+  - component: {fileID: 95626623023646146}
+  - component: {fileID: 114985675696443240}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -35,9 +37,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1457248230978418}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.784, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.98, y: 45.57, z: -3}
+  m_LocalScale: {x: 0.35, y: 0.35, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -78,15 +80,64 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 2.2}
-    newSize: {x: 1, y: 2.2}
+    oldSize: {x: 1.78, y: 3.86}
+    newSize: {x: 2.66, y: 4.04}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1, y: 2.2}
+  m_Size: {x: 1.78, y: 3.86}
   m_EdgeRadius: 0
+--- !u!95 &95626623023646146
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457248230978418}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: c1647dd382498ef4ea240ef0316610a4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114985675696443240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1457248230978418}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f316e52acaac547bc64d7df66ab2dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  slots: {fileID: 0}
+  animator: {fileID: 95626623023646146}
+  painelInventario: {fileID: 0}
+  painelWork: {fileID: 0}
+  btPlay: {fileID: 0}
+  player: {fileID: 1457248230978418}
+  listaBtMetodos: {fileID: 0}
+  metodos: []
+  pos: 134
+  speed: 0
+  executaPlay: 0
+  delayLiberado: 0
+  movimentos: 0
+  totalMovimentos: 0
+  countdown: 3
+  forcaPuloX: 54
+  forcaPuloY: 200
+  slotsWork: []
+  jogadaCount: 0
+  iniFor: 0
+  fimFor: 0
 --- !u!212 &212745307714122950
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -121,12 +172,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: a317a62220af3274b9d5a2a809dd921d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 411734fb29b6adf42b305269e4379290, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 2.2}
+  m_Size: {x: 2.66, y: 4.04}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
