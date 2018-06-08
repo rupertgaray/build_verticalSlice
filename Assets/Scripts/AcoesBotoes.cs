@@ -130,7 +130,8 @@ public class AcoesBotoes : MonoBehaviour
         {
             case 1:
                 {
-                    SceneManager.LoadScene("04_01_towerWood");
+                    //SceneManager.LoadScene("04_01_towerWood");
+                    SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }
 

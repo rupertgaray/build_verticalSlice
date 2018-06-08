@@ -123,6 +123,15 @@ public class Player : MonoBehaviour
                             executaPlay = false;
                             break;
                         }
+                    case EstadosPlayer.Morto:
+                        {
+                            Debug.Log("Merreu");
+                           // btPlay.GetComponent<Button>().interactable = true;
+                            executaPlay = false;
+                            animator.SetBool("playerParado", false);
+                            animator.SetBool("playerMorto", true);
+                            break;
+                        }
                     default:
                         {
                             Debug.Log("Opção inválida");
@@ -350,14 +359,21 @@ public class Player : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.LogWarning("entrou");
-        if (collision.gameObject.CompareTag("ColisorInferiror"))
+        if (collision.gameObject.CompareTag("ColisorInferior"))
         {
-            animator.SetBool("playerParado", false);
-            animator.SetBool("playerMorto", true);
+            Debug.LogWarning("entrou2");
+            estadoAtual = EstadosPlayer.Morto;
+            ChamaFimJogo();
         }
+    }
+
+    private void ChamaFimJogo()
+    {
+        animator.SetBool("playerParado", false);
+        animator.SetBool("playerMorto", true);
     }
 }
 
@@ -367,5 +383,6 @@ public enum EstadosPlayer
     Pulando,
     Aguardando,
     Delay,
-    Parado
+    Parado,
+    Morto
 }

@@ -12,7 +12,7 @@ EditorBuildSettings:
     path: Assets/Scenes/01_MainMenu.unity
     guid: 9856b5b985400ac428fce49431c68eea
   - enabled: 1
-    path: Assets/Scenes/02_NovoJogo.unity
+    path: Assets/Scenes/02_CarregarJogo.unity
     guid: a979b2e9786843b4eb98a72f07911284
   - enabled: 1
     path: Assets/Scenes/02_NovoJogo_Entrada_Dados.unity
@@ -26,6 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/04_01_towerWood.unity
     guid: e38d6cda797843f4f9e9ee5a546edccd
+  - enabled: 1
+    path: Assets/Scenes/04_01_towerWood_TESTE.unity
+    guid: 6e1f5677adb957f4aa9d96edd2c93aa4
   - enabled: 1
     path: Assets/Scenes/_anim_collectables.unity
     guid: b6a173ac2ebad9b479b9781a707acbd1
