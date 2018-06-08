@@ -73,7 +73,7 @@ public class AcoesBotoes : MonoBehaviour
 
             case "NovoJOp1":
                 {
-                    //SceneManager.LoadScene("MundoMap");
+                    SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }
             case "NovoJOp2":
@@ -130,7 +130,8 @@ public class AcoesBotoes : MonoBehaviour
         {
             case 1:
                 {
-                    SceneManager.LoadScene("04_01_towerWood");
+                    //SceneManager.LoadScene("04_01_towerWood");
+                    SceneManager.LoadScene("04_01_towerWood_TESTE");
                     break;
                 }
 

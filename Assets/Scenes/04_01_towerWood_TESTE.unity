@@ -448,7 +448,7 @@ Transform:
   - {fileID: 1066109604}
   - {fileID: 1663986051}
   m_Father: {fileID: 495283434}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &76616536
 BoxCollider2D:
@@ -1161,7 +1161,7 @@ Transform:
   m_LocalScale: {x: 1.366, y: 1.366, z: 1}
   m_Children: []
   m_Father: {fileID: 495283434}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &332405640
 SpriteRenderer:
@@ -1477,7 +1477,7 @@ Transform:
   m_LocalScale: {x: 1.366, y: 1.3627657, z: 1}
   m_Children: []
   m_Father: {fileID: 495283434}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &443272637
 SpriteRenderer:
@@ -1554,7 +1554,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2081902128}
-  - {fileID: 1133710410}
   - {fileID: 76616535}
   - {fileID: 978897274}
   - {fileID: 332405639}
@@ -1693,7 +1692,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2124019013}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &583195464
 BoxCollider2D:
@@ -2155,7 +2154,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2124019013}
-  m_RootOrder: 0
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &682586919
 BoxCollider2D:
@@ -2718,7 +2717,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133710409}
+      - m_Target: {fileID: 0}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -3483,7 +3482,7 @@ Transform:
   m_LocalScale: {x: 1.362918, y: 1.362918, z: 1.362918}
   m_Children: []
   m_Father: {fileID: 495283434}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &978897275
 SpriteRenderer:
@@ -4349,67 +4348,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce7ea0c5ae3c9748ab8f36aa2bb5e11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!1 &1133710408
-GameObject:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  serializedVersion: 5
-  m_Component:
-  - component: {fileID: 1133710410}
-  - component: {fileID: 1133710409}
-  m_Layer: 0
-  m_Name: PlayerController
-  m_TagString: PlayerController
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 0
---- !u!114 &1133710409
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133710408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18290a9cfd632aa40aef3131d389046f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  slots: {fileID: 1930804506}
-  animator: {fileID: 2081902124}
-  painelInventario: {fileID: 1635767167}
-  painelWork: {fileID: 1930804505}
-  btPlay: {fileID: 666778982}
-  player: {fileID: 2081902123}
-  listaBtMetodos: {fileID: 1680729735}
-  metodos: []
-  pos: 134
-  speed: 0
-  executaPlay: 0
-  delayLiberado: 0
-  movimentos: 0
-  totalMovimentos: 0
-  countdown: 3
-  forcaPuloX: 54
-  forcaPuloY: 200
-  slotsWork: []
-  jogadaCount: 0
-  iniFor: 0
-  fimFor: 0
---- !u!4 &1133710410
-Transform:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1133710408}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 46.26, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 495283434}
-  m_RootOrder: 1
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!224 &1145643809 stripped
 RectTransform:
   m_PrefabParentObject: {fileID: 224775784267358104, guid: ec12b16054403dd43b007e72f31f9bbc,
@@ -4775,7 +4713,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133710409}
+      - m_Target: {fileID: 0}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -4853,7 +4791,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2124019013}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &1240813517
 BoxCollider2D:
@@ -5497,7 +5435,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4344313642809792, guid: 716e365a39fac9b4d8f54ecc150a2e83, type: 2}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 1729467972006696, guid: 716e365a39fac9b4d8f54ecc150a2e83, type: 2}
       propertyPath: m_Name
@@ -6094,7 +6032,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133710409}
+      - m_Target: {fileID: 0}
         m_MethodName: AcaoBotaoMenuMetodos
         m_Mode: 2
         m_Arguments:
@@ -6696,7 +6634,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133710409}
+      - m_Target: {fileID: 0}
         m_MethodName: AcaoBotaoOpenTips
         m_Mode: 2
         m_Arguments:
@@ -7444,7 +7382,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1133710409}
+      - m_Target: {fileID: 0}
         m_MethodName: AcaoBotaoOpenTips
         m_Mode: 2
         m_Arguments:
@@ -8150,7 +8088,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4508694891215522, guid: 913eb69c60efc6147b6a296542808886, type: 2}
       propertyPath: m_RootOrder
-      value: 6
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 1128560403914534, guid: 913eb69c60efc6147b6a296542808886, type: 2}
       propertyPath: m_Name
@@ -8206,7 +8144,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 4428022719675550, guid: 79977a510e7f6b949917db22e34097e1, type: 2}
       propertyPath: m_RootOrder
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 1601753577338622, guid: 79977a510e7f6b949917db22e34097e1, type: 2}
       propertyPath: m_Name
@@ -8426,7 +8364,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 4550704431700096, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -3.98
+      value: -2.632
       objectReference: {fileID: 0}
     - target: {fileID: 4550704431700096, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
       propertyPath: m_LocalPosition.y
@@ -8489,16 +8427,6 @@ Prefab:
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f, type: 2}
   m_IsPrefabParent: 0
---- !u!1 &2081902123 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 1457248230978418, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2081902122}
---- !u!95 &2081902124 stripped
-Animator:
-  m_PrefabParentObject: {fileID: 95626623023646146, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
-    type: 2}
-  m_PrefabInternal: {fileID: 2081902122}
 --- !u!4 &2081902128 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4550704431700096, guid: 6d44d0aaee978df4e8d6fc2e3c0ae44f,
@@ -8535,9 +8463,9 @@ Transform:
   m_LocalPosition: {x: 0, y: 42.9, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 682586918}
   - {fileID: 1240813516}
   - {fileID: 583195463}
+  - {fileID: 682586918}
   m_Father: {fileID: 495283434}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

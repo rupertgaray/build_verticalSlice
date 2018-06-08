@@ -14,7 +14,12 @@ public class IniciaJogo : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //if (Input.anyKey)
-        if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
+        /*if (Input.GetKey(KeyCode.Return) || Input.GetKey(KeyCode.KeypadEnter))
+        {
+            //Debug.Log("Enter pressionado");
+            ProximaCena();
+        }*/
+        if (Input.anyKey)
         {
             //Debug.Log("Enter pressionado");
             ProximaCena();
